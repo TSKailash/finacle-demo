@@ -1,9 +1,10 @@
 import mysql from "mysql2";
+import "dotenv/config";
 
 var connection = mysql.createConnection({
     host: "localhost",
-    user: "root", 
-    password: "root",
+    user: process.env.SQL_USER, 
+    password: process.env.SQL_PASSWORD,
     database: "studentdb"});
 connection.connect();
 export const getAllStudents = (req,res)=>{
